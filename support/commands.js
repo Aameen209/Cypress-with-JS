@@ -35,4 +35,34 @@ Cypress.Commands.add('getIframe',(iframe)=>{
         .should('be.visible')
         .then(cy.wrap);
     })
+
+    // //Custom command for clicking on link using label
+    // Cypress.Commands.add('clickLink',(label)=>{
+    //     cy.get('a').contains(label).click(); // it does not show any error for uppercase/lowercase
+    // })
+    /// <reference types="cypress" />
+
+Cypress.Commands.add("clickLink", (label) => {
+    cy.contains("a", label).click();
+});
+
+    
+    //Over written contains  
+    Cypress.Commands.overwrite('contains',(riginalFn, Subject,filter,text,options = { })=>{
+        // determine if a filter argument was passed
+        if (typeof text ==='object'){
+            options = text
+            text = filter
+            filter = undefined
+        }
+        options.matchCase   =  false //it will match uppercase with lower
+        return originalFn(Subject,filter,text,options)
+    })
+    //Custom Command for login
+    Cypress.Commands.add("loginapp",(email,password)=>{
+        cy.get('#Email').type(email);
+        cy.get('#password').type(password);
+        cy.get("button[class='button-1 login-button']").click();
+    })
+ 
  

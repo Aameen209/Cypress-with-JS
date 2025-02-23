@@ -12,7 +12,9 @@
     "@4tw/cypress-drag-drop": "^2.3.0",
     "@types/cypress": "^1.1.6",
     "cypress": "^14.0.2",
+    "cypress-file-upload": "^5.0.8",
     "cypress-iframe": "^1.0.1",
+    "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-xpath": "^2.0.1",
     "typescript": "^5.7.3"
   }
