@@ -3,11 +3,13 @@ describe("Assertions demo", () => {
     it("Implicit assertions", () => {  // should keyword, and keyword
 
         // for verifying url
-        cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"); // visiting the login page
 
+        // Verifying the URL contains the expected domain
         cy.url("").should('include', 'orangehrmlive.com'); // include 
         cy.url().should('eq', 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'); // equal to
         cy.url().should('contain', 'orangehrm'); // contain
+        
         describe("Assertions demo", () => {
 
             it("Implicit assertions", () => {  /// should keyword, and keyword
@@ -26,7 +28,7 @@ describe("Assertions demo", () => {
                 // contain
                 cy.url().should('contain', 'orangehrm'); 
         
-                // To run simple remove cy.url() then only should is repeating multiple times
+                // Chaining multiple should() assertions
                 cy.url(" ").should('include', 'orangehrmlive.com')  
                     .should('eq', 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login') 
                     .should('contain', 'orangehrm'); 
@@ -37,23 +39,24 @@ describe("Assertions demo", () => {
                     .and('contain', 'orangehrm') 
                     .and('not.contain', 'greenhrm'); /// for not contain (Negative Scenario)
         
-                // for checking title
+                // Verifying the page title
                 cy.title().should('include', 'Orange') 
                     .and('eq', 'OrangeHRM') 
                     .and('contain', 'HRM'); 
         
-                // for image css path after running test click on aim button then click on the logo and then copy
-                // check the image is visible
+                // Checking if the logo image is visible
                 cy.get('.orangehrm-login-logo > img').should('be.visible'); /// checking if logo is visible
-                // check the logo is exist 
+                
+                // Checking if the logo exists in the DOM
                 cy.get('.orangehrm-login-branding > img').should('exist'); /// checking if logo exists in DOM
         
-                // cy.xpath("//a") // will return all the links which are present on the webpage
+                // Verifying the number of anchor tags on the page
                 cy.xpath('//a').should('have.length', '5'); /// have.length is a keyword 
-                
-                // "//a" is an XPath locator that selects all <a> (anchor) tags in the document
         
+                // Entering username in the input field
                 cy.get("input[name='username']").type("Admin"); 
+                
+                // Verifying the entered value
                 cy.get("input[name='username']").should('have.value', 'Admin'); /// have.value is a parameter
         
             });
@@ -62,24 +65,29 @@ describe("Assertions demo", () => {
                 /// Explicit Assertions: These require manual checks using expect() or assert().
                 /// They allow direct comparison between actual and expected values.
         
+                // Visiting the login page
                 cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         
+                // Entering username and password
                 cy.get("input[name='username']").type("Admin");
-                cy.get("input[name='password"]").type("admin123");
+                cy.get("input[name='password']").type("admin123");
+                
+                // Clicking the login button
                 cy.get("button[type='submit']").click();
         
                 let expName = "Илья Николаевич"; 
                 
+                // Fetching the actual username displayed on the page
                 cy.get(".oxd-userdropdown-name").then((x) => {
                     let actName = x.text(); /// a user-defined function to fetch actual text
                     
-                    // BDD Style
+                    // BDD Style assertions
                     expect(actName).to.equal(expName);  /// comparing actName with expName
                     expect(actName).to.not.equal(expName);  
         
-                    // TDD style
-                    assert.equal(actName,expName) 
-                    assert.notEqual(actName,expName) 
+                    // TDD style assertions
+                    assert.equal(actName,expName); 
+                    assert.notEqual(actName,expName); 
         
                 });
         
@@ -87,31 +95,32 @@ describe("Assertions demo", () => {
         
         });
         
-        // To run simple remove cy.url() then only should is repeating multiple times
+        // Using multiple should() assertions
         cy.url("").should('include', 'orangehrmlive.com') // include  
             .should('eq', 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login') // should equal to
             .should('contain', 'orangehrm'); // contain
 
-        // instead of using should we can use "and" to reduce it 
+        // Using "and" to simplify multiple assertions
         cy.url("").should('include', 'orangehrmlive.com') // include 
             .and('eq', 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login') // equal to
             .and('contain', 'orangehrm') // contain
             .and('not.contain', 'greenhrm'); // for not contain (Negative Scenario)
 
-        // for checking title
+        // Verifying the page title
         cy.title().should('include', 'Orange')
             .and('eq', 'OrangeHRM')
             .and('contain', 'HRM');
 
-        // for image css path after running test click on aim button then click on the logo and then copy
-        // check the image is visible
+        // Checking if the logo image is visible
         cy.get('.orangehrm-login-logo > img').should('be.visible');
-        // check the logo is exist 
+        
+        // Checking if the logo exists in the DOM
         cy.get('.orangehrm-login-branding > img').should('exist');
 
-        // cy.xpath("//a") // will return all the links which are present on the webpage
+        // Verifying the number of links present on the webpage
         cy.xpath('//a').should('have.length', '5'); // have.length is a keyword 
 
+        // Entering username and verifying the value
         cy.get("input[name='username']").type("Admin");
         cy.get("input[name='username']").should('have.value', 'Admin'); // have.value is a parameter
 
@@ -119,24 +128,29 @@ describe("Assertions demo", () => {
 
     it("Explicit assertions", () => {  // asser keyword, expect keyword
 
+        // Visiting the login page
         cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
+        // Entering username and password
         cy.get("input[name='username']").type("Admin");
         cy.get("input[name='password']").type("admin123");
+        
+        // Clicking the login button
         cy.get("button[type='submit']").click();
 
         let expName = "Илья Николаевич";
         
+        // Fetching the actual username displayed on the page
         cy.get(".oxd-userdropdown-name").then((x) => {
             let actName = x.text(); // a user defined function
-            // BDD Style
+            
+            // BDD Style assertions
             expect(actName).to.equal(expName);  // comparing actName with expName
             expect(actName).to.not.equal(expName);  
 
-            // TDD style
-            assert.equal(actName,expName)
-            assert.notEqual(actName,expName)
-
+            // TDD style assertions
+            assert.equal(actName,expName);
+            assert.notEqual(actName,expName);
         });
 
     });
