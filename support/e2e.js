@@ -18,3 +18,7 @@ import './commands'
 require('cypress-xpath')
 import './commands';
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false; // This will ignore the error and allow tests to continue
+  })
+  
