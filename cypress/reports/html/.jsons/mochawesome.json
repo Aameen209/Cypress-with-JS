@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-30T10:01:34.149Z",
+    "end": "2025-03-30T10:01:50.202Z",
+    "duration": 16053,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "81636907-6d21-4847-bb43-e2bedef327a1",
+      "title": "",
+      "fullFile": "e2e\\CypressBySDET\\Part10-Tab.cy.js",
+      "file": "e2e\\CypressBySDET\\Part10-Tab.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "507a975c-00c5-40a9-af5f-dfc1856115f0",
+          "title": "Handle Tabs",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Handle tab on the same Page",
+              "fullTitle": "Handle Tabs Handle tab on the same Page",
+              "timedOut": null,
+              "duration": 7923,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://the-internet.herokuapp.com/windows\"); // Visit the target URL\n// After removing the target attribute, the page is opened on the same window\ncy.get(\".example >a\").invoke('removeAttr', \"target\").click(); // removeAttr = to remove attribute which is target\ncy.url().should('include', 'https://the-internet.herokuapp.com/windows/new'); // Verify the URL of the new page after redirection\ncy.wait(3000); // Wait for 3 seconds (if necessary)\n// Operations\ncy.go('back'); // Navigate back to the parent tab",
+              "err": {},
+              "uuid": "35890a42-8d16-402c-a3d5-6b5231e41abd",
+              "parentUUID": "507a975c-00c5-40a9-af5f-dfc1856115f0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Visiting the URL after extracting the href value in URL",
+              "fullTitle": "Handle Tabs Visiting the URL after extracting the href value in URL",
+              "timedOut": null,
+              "duration": 4534,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://the-internet.herokuapp.com/windows\"); // Visit the target URL\ncy.get(\".example >a\").then(e => {\n  // Locate the anchor tag\n  // Extracting the href value and putting it in the URL\n  let url = e.prop('href'); // href = hyper reference link\n  cy.visit(url); // Navigate to the extracted URL\n});\n// Both URLs should be the same for this approach to work (domain should match)\ncy.url().should('include', 'https://the-internet.herokuapp.com/windows/new'); // Assertion to verify the new URL\ncy.wait(3000); // Wait for 3 seconds (if necessary)\n// Operations\ncy.go('back'); // Navigate back to the parent tab",
+              "err": {},
+              "uuid": "7250268b-f571-41b2-a521-ddf96fcb8423",
+              "parentUUID": "507a975c-00c5-40a9-af5f-dfc1856115f0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "35890a42-8d16-402c-a3d5-6b5231e41abd",
+            "7250268b-f571-41b2-a521-ddf96fcb8423"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12457,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

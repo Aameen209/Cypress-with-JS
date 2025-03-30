@@ -1,3 +1,5 @@
+/* global cy, Cypress */
+
 describe('CSSLocators', () => {
 
     it("csslocators", () => {

@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-03-30T10:02:01.488Z",
+    "end": "2025-03-30T10:02:02.554Z",
+    "duration": 1066,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e1fd012f-0b39-4884-9f57-a713662a975e",
+      "title": "",
+      "fullFile": "e2e\\CypressBySDET\\Part12-HandlingTables.cy.js",
+      "file": "e2e\\CypressBySDET\\Part12-HandlingTables.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1d413346-7d52-4001-bb31-2a8829e60775",
+          "title": "Handle Tables",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Page initiation",
+              "fullTitle": "Handle Tables Page initiation",
+              "timedOut": null,
+              "duration": 1038,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// This test case iterates through multiple pages and logs specific column data.\n/*\n  //find total no of pages\n  let totalPages;\n  cy.get(\".col-sm-6.text-end\").then(   (e)=>{\n      \n      let mytext=e.text(); //showing 1 to 10 of 16071 (1671 pages)\n        totalPages=mytext.substring(mytext.indexOf(\"(\")+1, mytext.indexOf(\"Pages\")-1 );\n      cy.log(\"Total number of pages in a table=>\"+totalPages);\n  })*/\n// Read data from all pages (Here, we are limiting it to 3 pages for testing)\nlet totalPages = 3;\nfor (let p = 1; p <= totalPages; p++) {\n  if (totalPages > 1) {\n    cy.log(\"Active page is===\" + p); // Log active page number\n    // Click on the corresponding pagination number\n    cy.get(\"ul[class='pagination']>li:nth-child(\" + p + \")\").click();\n    cy.wait(5000); // Wait for the new page to load\n    // Iterate through each row in the table on the current page\n    cy.get(\"table[class='table table-bordered table-hover']>tbody>tr\").each(($row, index, $rows) => {\n      //$row represents a single row, $rows represents all rows\n      cy.wrap($row).within(() => {\n        // Wrap the row to work inside it\n        // Extract the text from the 3rd column of each row\n        cy.get('td:nth-child(3)').then(e => {\n          cy.log(e.text()); // Log the extracted data\n        });\n      });\n    });\n  }\n}",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://demo.opencart.com/admin/index.php\n\nThe response we received from your web server was:\n\n  > 403: Forbidden\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Handle Tables`",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://demo.opencart.com/admin/index.php\n\nThe response we received from your web server was:\n\n  > 403: Forbidden\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Handle Tables`\n    at <unknown> (http://localhost:54134/__cypress/runner/cypress_runner.js:131314:76)\n    at visitFailedByErr (http://localhost:54134/__cypress/runner/cypress_runner.js:130720:12)\n    at <unknown> (http://localhost:54134/__cypress/runner/cypress_runner.js:131297:13)\n    at tryCatcher (http://localhost:54134/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:54134/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:54134/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:54134/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:54134/__cypress/runner/cypress_runner.js:1667:18)\n    at _drainQueueStep (http://localhost:54134/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:54134/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:54134/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:54134/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://cypressautomation/./e2e/CypressBySDET/Part12-HandlingTables.cy.js:5:11)",
+                "diff": null
+              },
+              "uuid": "b81ea878-c536-4f76-ae16-1c5f4181aac2",
+              "parentUUID": "1d413346-7d52-4001-bb31-2a8829e60775",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b81ea878-c536-4f76-ae16-1c5f4181aac2"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1038,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

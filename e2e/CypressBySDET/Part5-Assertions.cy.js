@@ -33,7 +33,7 @@ describe("Assertions demo", () => {
                     .should('eq', 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login') 
                     .should('contain', 'orangehrm'); 
         
-                // instead of using should we can use "and" to reduce it 
+                // instead of using "should" we can use "and" to reduce it 
                 cy.url(" ").should('include', 'orangehrmlive.com')  
                     .and('eq', 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login') 
                     .and('contain', 'orangehrm') 
@@ -81,11 +81,11 @@ describe("Assertions demo", () => {
                 cy.get(".oxd-userdropdown-name").then((x) => {
                     let actName = x.text(); /// a user-defined function to fetch actual text
                     
-                    // BDD Style assertions
+                    // BDD (Behavior-Driven Development) Style assertions
                     expect(actName).to.equal(expName);  /// comparing actName with expName
                     expect(actName).to.not.equal(expName);  
         
-                    // TDD style assertions
+                    // TDD (Test-Driven Development) style assertions
                     assert.equal(actName,expName); 
                     assert.notEqual(actName,expName); 
         

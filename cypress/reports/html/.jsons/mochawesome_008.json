@@ -1,0 +1,155 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 0,
+    "pending": 0,
+    "failures": 3,
+    "start": "2025-03-30T10:03:17.565Z",
+    "end": "2025-03-30T10:03:18.445Z",
+    "duration": 880,
+    "testsRegistered": 3,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "da36202c-6ca0-4012-a40e-10e200fe87e8",
+      "title": "",
+      "fullFile": "e2e\\CypressBySDET\\Part17-CustomCommands.cy.js",
+      "file": "e2e\\CypressBySDET\\Part17-CustomCommands.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d35434cd-3f7c-4e19-a399-50666490a5db",
+          "title": "Custom Commands",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "handling links",
+              "fullTitle": "Custom Commands handling links",
+              "timedOut": null,
+              "duration": 482,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://magento.softwaretestingboard.com/'); // Navigate to Magento homepage\n// Direct method to click link (commented out)\n/*cy.get('.product-item-name>a[title=\"Argus All-Weather Tank\"]').click()\ncy.get(\".page-title>span\").should('have.text','Argus All-Weather Tank')\n*/\n// Using a custom Cypress command (defined in commands.js)\ncy.clickLink(\"Radiant Tee\"); // Click on \"Radiant Tee\" using a custom command\ncy.get(\".page-title>span\").should('have.text', 'Radiant Tee'); // Verify product page title",
+              "err": {
+                "message": "TypeError: cy.clickLink is not a function",
+                "estack": "TypeError: cy.clickLink is not a function\n    at Context.eval (webpack://cypressautomation/./e2e/CypressBySDET/Part17-CustomCommands.cy.js:18:11)\n    at runnable.fn (http://localhost:54134/__cypress/runner/cypress_runner.js:138090:19)\n    at callFn (http://localhost:54134/__cypress/runner/cypress_runner.js:156686:21)\n    at Runnable.run (http://localhost:54134/__cypress/runner/cypress_runner.js:156673:7)\n    at <unknown> (http://localhost:54134/__cypress/runner/cypress_runner.js:162603:30)\n    at PassThroughHandlerContext.finallyHandler (http://localhost:54134/__cypress/runner/cypress_runner.js:4042:23)\n    at PassThroughHandlerContext.tryCatcher (http://localhost:54134/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:54134/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:54134/__cypress/runner/cypress_runner.js:1546:18)",
+                "diff": null
+              },
+              "uuid": "b0c5a7ad-2e15-476e-898c-e5043de81585",
+              "parentUUID": "d35434cd-3f7c-4e19-a399-50666490a5db",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "over writing existing command",
+              "fullTitle": "Custom Commands over writing existing command",
+              "timedOut": null,
+              "duration": 131,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// It should pass for overwriting command in commands.js\ncy.visit('https://demo.nopcommerce.com/'); // Navigate to NopCommerce demo site\n// Using a custom command to click on a product link\ncy.clickLink(\"APPLE MACBOOK BRO 13-inch\");\n// Verify that the correct product page opens\ncy.get('.product-title>a[href=\"/apple-macbook-pro\"]').should('have.text', 'Apple Macbook Pro 13-inch');\n// Not working (direct method, commented out)\n/*cy.get('.product-item-name>a[title=\"Argus All-Weather Tank\"]').click()\ncy.get(\".page-title>span\").should('have.text','Argus All-Weather Tank')*/\n// Using custom command (commented out)\n// cy.clickLink(\"Radiant Tee\");\n// cy.get(\".page-title>span\").should('have.text','Radiant Tee');",
+              "err": {
+                "message": "TypeError: cy.clickLink is not a function",
+                "estack": "TypeError: cy.clickLink is not a function\n    at Context.eval (webpack://cypressautomation/./e2e/CypressBySDET/Part17-CustomCommands.cy.js:27:11)\n    at runnable.fn (http://localhost:54134/__cypress/runner/cypress_runner.js:138090:19)\n    at callFn (http://localhost:54134/__cypress/runner/cypress_runner.js:156686:21)\n    at Runnable.run (http://localhost:54134/__cypress/runner/cypress_runner.js:156673:7)\n    at <unknown> (http://localhost:54134/__cypress/runner/cypress_runner.js:162603:30)\n    at PassThroughHandlerContext.finallyHandler (http://localhost:54134/__cypress/runner/cypress_runner.js:4042:23)\n    at PassThroughHandlerContext.tryCatcher (http://localhost:54134/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:54134/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:54134/__cypress/runner/cypress_runner.js:1546:18)",
+                "diff": null
+              },
+              "uuid": "ca9bce7c-0f34-4600-8055-d9e5c38849e5",
+              "parentUUID": "d35434cd-3f7c-4e19-a399-50666490a5db",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "login command",
+              "fullTitle": "Custom Commands login command",
+              "timedOut": null,
+              "duration": 144,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.nopcommerce.com/'); // Navigate to NopCommerce homepage\n// Perform login operation using a custom Cypress command\ncy.clickLink(\"Log in\"); // Custom command for clicking login link\ncy.loginapp(\"testing@gmail.com\", \"test123\"); // Custom command for logging in with credentials\n// Verify successful login by checking the presence of \"My account\" link\ncy.get('.ico-account').should('have.text', 'My account');",
+              "err": {
+                "message": "TypeError: cy.clickLink is not a function",
+                "estack": "TypeError: cy.clickLink is not a function\n    at Context.eval (webpack://cypressautomation/./e2e/CypressBySDET/Part17-CustomCommands.cy.js:45:11)\n    at runnable.fn (http://localhost:54134/__cypress/runner/cypress_runner.js:138090:19)\n    at callFn (http://localhost:54134/__cypress/runner/cypress_runner.js:156686:21)\n    at Runnable.run (http://localhost:54134/__cypress/runner/cypress_runner.js:156673:7)\n    at <unknown> (http://localhost:54134/__cypress/runner/cypress_runner.js:162603:30)\n    at PassThroughHandlerContext.finallyHandler (http://localhost:54134/__cypress/runner/cypress_runner.js:4042:23)\n    at PassThroughHandlerContext.tryCatcher (http://localhost:54134/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:54134/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:54134/__cypress/runner/cypress_runner.js:1546:18)",
+                "diff": null
+              },
+              "uuid": "b295ddc1-4001-4e04-a430-4ff63a2a3641",
+              "parentUUID": "d35434cd-3f7c-4e19-a399-50666490a5db",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b0c5a7ad-2e15-476e-898c-e5043de81585",
+            "ca9bce7c-0f34-4600-8055-d9e5c38849e5",
+            "b295ddc1-4001-4e04-a430-4ff63a2a3641"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 757,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

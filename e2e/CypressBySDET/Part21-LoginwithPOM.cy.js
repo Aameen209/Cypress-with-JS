@@ -1,4 +1,4 @@
-import Login from "../Pageobject.js/LoginPage2"; // Importing the Login page object model (POM) class
+import Login from "../../Pageobject.js/LoginPage2"; // Importing the Login page object model (POM) class
 
 describe('POM',()=>{
 

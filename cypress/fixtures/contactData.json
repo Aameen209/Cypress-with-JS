@@ -1,0 +1,15 @@
+{
+    "valid": {
+      "name": "Mohd Aameen Khan",
+      "email": "aameenkhan544@gmail.com",
+      "phone": "+91-7531917202",
+      "message": "TESTING!!!"
+    },
+    "invalid": {
+      "name": "!@#$%^&*",
+      "email": "invalidemail",
+      "phone": "123",
+      "message": "..........."
+    }
+  }
+  

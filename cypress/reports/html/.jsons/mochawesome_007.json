@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-30T10:03:04.617Z",
+    "end": "2025-03-30T10:03:14.143Z",
+    "duration": 9526,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c9a91756-a8af-4044-aec4-edf8135e6dfb",
+      "title": "",
+      "fullFile": "e2e\\CypressBySDET\\Part16-Fixtures.cy.js",
+      "file": "e2e\\CypressBySDET\\Part16-Fixtures.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5d6f8e1e-c222-4fa7-a289-e8faa34bc987",
+          "title": "Mytestsuite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "For multiple it block",
+              "fullTitle": "Mytestsuite For multiple it block",
+              "timedOut": null,
+              "duration": 6541,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'); // Navigate to login page\ncy.get('input[name=\"username\"]').type(userdata.username); // Use stored fixture data for username\ncy.get('input[name=\"password\"]').type(userdata.password); // Use stored fixture data for password\ncy.get(\"button[type='submit']\").click(); // Click login button\n// Verify the expected text on the dashboard after login\ncy.get(\".oxd-text.oxd-text--h6.oxd-topbar-header-breadcrumb-module\").should('have.text', userdata.expected);",
+              "err": {},
+              "uuid": "f35789c4-824b-4618-a716-cef7a84e5003",
+              "parentUUID": "5d6f8e1e-c222-4fa7-a289-e8faa34bc987",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f35789c4-824b-4618-a716-cef7a84e5003"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6541,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

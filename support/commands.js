@@ -24,10 +24,14 @@
     // -- This will overwrite an existing command --
     // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+const cypress = require('cypress');
+
     /// <reference types="cypress" >
 /// <reference types="cypress" />
     /// <reference types="cypress-xpath" />
     /// <reference types="cypress-xpath" >
+    require('cypress-xpath');
+
 
 Cypress.Commands.add('getIframe',(iframe)=>{
         return cy.get("iframe")
@@ -64,5 +68,15 @@ Cypress.Commands.add("clickLink", (label) => {
         cy.get('#password').type(password);
         cy.get("button[class='button-1 login-button']").click();
     })
+
+    Cypress.Commands.add("SubmitForm", (name, email, phone, message) => {
+        cy.get("input[name='your-name']").first().type(name, { force: true });
+        cy.get("input[name='your-email']").first().type(email, { force: true });
+        cy.get("input[name='your-phone']").first().type(phone, { force: true });
+        cy.get("textarea[name='your-message']").first().type(message, { force: true });
+      
+        cy.get("input[value='Enquiry now']").first().click({ force: true });
+      });
+      
  
  

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-30T10:02:29.682Z",
+    "end": "2025-03-30T10:02:43.884Z",
+    "duration": 14202,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7317eddb-8779-4382-a32f-f6ec6eea4096",
+      "title": "",
+      "fullFile": "e2e\\CypressBySDET\\Part14-FileUpload.cy.js",
+      "file": "e2e\\CypressBySDET\\Part14-FileUpload.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "376588b6-cd71-414f-a7b1-2b1d69c0116d",
+          "title": "File Upload",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "File Upload - Shadow DOM",
+              "fullTitle": "File Upload File Upload - Shadow DOM",
+              "timedOut": null,
+              "duration": 10750,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// shadow root = shadow DOM\ncy.visit('https://www.htmlelements.com/demos/fileupload/shadow-dom/index.htm');\n// Selecting a file input inside a shadow DOM using {includeShadowDom: true}\ncy.get(\".smart-browse-input\", {\n  includeShadowDom: true\n}).attachFile(\"test1.pdf\");\ncy.wait(5000);\n// Verify uploaded file appears inside shadow DOM\ncy.get('.smart-item-name', {\n  includeShadowDom: true\n}).contains('test1.pdf');\n// when writing this ID #fileUpload8c28File1Name then it's not working and with class it is working why?\n// Possible reason: The element inside the shadow DOM might have dynamically generated IDs that change per session, \n// making it unreliable to use an ID selector. Using class selectors can be more stable.",
+              "err": {},
+              "uuid": "0cc02d19-8aca-442d-8b4d-78461b25776c",
+              "parentUUID": "376588b6-cd71-414f-a7b1-2b1d69c0116d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0cc02d19-8aca-442d-8b4d-78461b25776c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10750,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

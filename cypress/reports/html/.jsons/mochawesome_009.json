@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-03-30T10:03:21.448Z",
+    "end": "2025-03-30T10:03:21.925Z",
+    "duration": 477,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "331132af-8649-41ff-a2de-197ea8b267a7",
+      "title": "",
+      "fullFile": "e2e\\CypressBySDET\\Part18-Navigation.cy.js",
+      "file": "e2e\\CypressBySDET\\Part18-Navigation.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ec9df859-5eea-4303-8400-8a7fbe704ab0",
+          "title": "My Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigation",
+              "fullTitle": "My Suite Navigation",
+              "timedOut": null,
+              "duration": 454,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Visit the OpenCart demo homepage\ncy.visit('https://demo.opencart.com/');\n// Validate the page title using an assertion\ncy.title().should('eq', 'Your Store'); // Homepage\n// Click on the \"Cameras\" menu link\ncy.get('#narbar-menu>ul>li:nth-child(7)>a').click();\n// Locator Used: **CSS Selector** (ID + child combinators)\n// Explanation: `#navbar-menu` (ID) > `ul` (unordered list) > `li:nth-child(7)` (7th list item) > `a` (anchor link)\n// Validate the \"Cameras\" page heading text\ncy.get('#content>h2').should('have.text', \"Cameras\"); // Cameras Page\n// Locator Used: **CSS Selector** (ID + child)\n// Explanation: `#content` (ID) > `h2` (heading tag inside the content section)\ncy.go('back'); // Go back to the homepage <--\ncy.title().should('eq', 'Your Store');\ncy.go('forward'); // Navigate forward -->\ncy.get('#content>h2').should('have.text', \"Cameras\"); // Cameras Page\ncy.reload(); // Reload the page\ncy.go(-1); // Alternative method for going back\ncy.title().should('eq', 'Your Store'); // Homepage\ncy.go(1); // Alternative method for going forward\ncy.get('#content>h2').should('have.text', \"Cameras\"); // Cameras Page",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://demo.opencart.com/\n\nThe response we received from your web server was:\n\n  > 403: Forbidden\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://demo.opencart.com/\n\nThe response we received from your web server was:\n\n  > 403: Forbidden\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n    at <unknown> (http://localhost:54134/__cypress/runner/cypress_runner.js:131314:76)\n    at visitFailedByErr (http://localhost:54134/__cypress/runner/cypress_runner.js:130720:12)\n    at <unknown> (http://localhost:54134/__cypress/runner/cypress_runner.js:131297:13)\n    at tryCatcher (http://localhost:54134/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:54134/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:54134/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:54134/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:54134/__cypress/runner/cypress_runner.js:1667:18)\n    at _drainQueueStep (http://localhost:54134/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:54134/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:54134/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:54134/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://cypressautomation/./e2e/CypressBySDET/Part18-Navigation.cy.js:7:11)",
+                "diff": null
+              },
+              "uuid": "c605d6cd-7f06-4408-98a3-e006c5e3605c",
+              "parentUUID": "ec9df859-5eea-4303-8400-8a7fbe704ab0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "c605d6cd-7f06-4408-98a3-e006c5e3605c"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 454,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

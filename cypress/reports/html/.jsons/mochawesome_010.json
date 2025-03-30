@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-03-30T10:03:24.748Z",
+    "end": "2025-03-30T10:03:25.321Z",
+    "duration": 573,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1771057f-2d4c-404c-9bde-878d3367a71e",
+      "title": "",
+      "fullFile": "e2e\\CypressBySDET\\Part19-CaptureScreenShotsandVideos.cy.js",
+      "file": "e2e\\CypressBySDET\\Part19-CaptureScreenShotsandVideos.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "147addbe-9b69-4fe4-9903-7735c9062c99",
+          "title": "My suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Automatically Capture Screenshots",
+              "fullTitle": "My suite Automatically Capture Screenshots",
+              "timedOut": null,
+              "duration": 527,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Automatically captures a screenshot on failure, but only when executing through CLI\ncy.visit('https://demo.opencart.com/'); // Open the OpenCart homepage\ncy.get('#narbar-menu>ul>li:nth-child(2)').click(); // Navigate to the \"Cameras\" page\n// Locator Used: **CSS Selector**\n// Explanation: `#navbar-menu` (ID) > `ul` (unordered list) > `li:nth-child(2)` (2nd list item)\ncy.get(\"body main li:nth-child(7)\").should('have.text', \"MP3 Players\");\n// Assertion: Checking if the 7th `li` inside `main` has the text \"MP3 Players\"\n// Locator Used: **CSS Selector** (Tag + hierarchy)\n// Explanation: `body` > `main` (main content) > `li:nth-child(7)` (7th list item)",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://demo.opencart.com/\n\nThe response we received from your web server was:\n\n  > 403: Forbidden\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://demo.opencart.com/\n\nThe response we received from your web server was:\n\n  > 403: Forbidden\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n    at <unknown> (http://localhost:54134/__cypress/runner/cypress_runner.js:131314:76)\n    at visitFailedByErr (http://localhost:54134/__cypress/runner/cypress_runner.js:130720:12)\n    at <unknown> (http://localhost:54134/__cypress/runner/cypress_runner.js:131297:13)\n    at tryCatcher (http://localhost:54134/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:54134/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:54134/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:54134/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:54134/__cypress/runner/cypress_runner.js:1667:18)\n    at _drainQueueStep (http://localhost:54134/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:54134/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:54134/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:54134/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://cypressautomation/./e2e/CypressBySDET/Part19-CaptureScreenShotsandVideos.cy.js:21:11)",
+                "diff": null
+              },
+              "uuid": "e8dd1e9a-a953-41f6-b35b-0a3812c52a8a",
+              "parentUUID": "147addbe-9b69-4fe4-9903-7735c9062c99",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "e8dd1e9a-a953-41f6-b35b-0a3812c52a8a"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 527,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
